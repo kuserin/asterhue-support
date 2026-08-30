@@ -96,6 +96,18 @@ table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 0.9
 th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
 th { font-weight: 600; color: var(--ink-soft); font-size: 0.85rem; }
 
+/* A definition table: labels down the first column rather than across the top. Left to
+   the rule above, the browser squeezes that column until short labels break mid-word. */
+.spec { table-layout: fixed; }
+.spec th { width: 11em; padding-right: 20px; }
+
+@media (max-width: 560px) {
+  /* 11em of label leaves too little for the value, so the pair stacks instead. */
+  .spec, .spec tbody, .spec tr, .spec th, .spec td { display: block; width: auto; }
+  .spec th { border-bottom: 0; padding: 14px 0 0; }
+  .spec td { padding: 2px 0 14px; border-bottom: 1px solid var(--hairline); }
+}
+
 footer {
   margin-top: 88px;
   padding-top: 28px;
