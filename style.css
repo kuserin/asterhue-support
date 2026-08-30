@@ -1,0 +1,105 @@
+/* Asterhue support site. One stylesheet, no external assets: these pages have to load
+   for an App Store reviewer on a bad connection, and for a user tapping through from
+   Settings, without depending on anything we do not control. */
+
+:root {
+  --ink: #17171a;
+  --ink-soft: #5d5d66;
+  --ground: #f7f6f4;
+  --card: #ffffff;
+  --hairline: #e3e1dd;
+  --accent: #47474f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ececf0;
+    --ink-soft: #9a9aa4;
+    --ground: #0e0e10;
+    --card: #17171a;
+    --hairline: #2a2a2f;
+    --accent: #c8c8d0;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 24px 96px;
+  background: var(--ground);
+  color: var(--ink);
+  font: 16px/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+        "Helvetica Neue", Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap { max-width: 44rem; margin: 0 auto; }
+
+header {
+  padding: 72px 0 40px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 48px;
+}
+
+.mark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 28px;
+}
+
+h1 { font-size: 1.65rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 8px; }
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 56px 0 12px;
+  padding-top: 8px;
+}
+h3 { font-size: 1rem; font-weight: 600; margin: 32px 0 8px; }
+
+p, li { color: var(--ink); }
+p { margin: 0 0 16px; }
+ul { margin: 0 0 16px; padding-left: 1.35em; }
+li { margin-bottom: 8px; }
+
+.lede { color: var(--ink-soft); margin-bottom: 0; }
+.meta { color: var(--ink-soft); font-size: 0.875rem; margin: 0; }
+
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: var(--hairline); }
+a:hover { text-decoration-color: var(--ink); }
+
+nav { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; font-size: 0.9rem; }
+nav a { color: var(--ink-soft); text-decoration: none; }
+nav a:hover { color: var(--ink); }
+
+/* The language divider: both languages live on one page so nothing depends on a
+   script running, or on guessing the reader's locale. */
+.lang-rule {
+  margin: 88px 0 0;
+  border: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 0.94rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-soft); font-size: 0.85rem; }
+
+footer {
+  margin-top: 88px;
+  padding-top: 28px;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
